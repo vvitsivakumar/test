@@ -19,7 +19,8 @@ toc: true
 - RHEL-based servers
 
 ## Introduction
-This script is designed to check and troubleshoot common issues in a Faveo Helpdesk. It includes the following diagnostic checks:
+The script is designed to ensure that all essential services and configurations on the Faveo-installed server are functioning correctly. It helps validate system components, identify configuration or connectivity issues, and maintain a stable and healthy Faveo Helpdesk environment. It includes the following diagnostic checks:
+
 SSL Check  
 → Verifies SSL certificate validity for the domain.
 
@@ -119,24 +120,10 @@ Date: Thursday 19 June 2025 10:57:40 AM IST
 --------------------------------------------------
 Faveo APP_URL from .env: faveo.helpdesk.com
 Enter domain for SSL check (leave empty to use APP_URL):
-
 ```
+The script will automatically read the APP_URL from the .env file inside faveo root directory.
 
-If your root directory is the default (/var/www/faveo), just press Enter.
-
-The script will automatically read the APP_URL from the .env file inside that directory.
-
-If the root directory is not the default, open the .env file, get the APP_URL, and enter it manually when prompted.
-
-
-Example:
-```
-faveo.helpdesk.com/faveo/public
-``` 
-After entering, it will display information like SSL validation, System Info, Service Status, Faveo Application Info, Cron Jobs (takes 5–10 sec),CSF, Supervisor Jobs, Logged-in Users, Billing Connection Check, Root-Owned Files/Folders in the Faveo directory, Port Availability Check, and prompt for any additional ports to check
-
-If you need to check additional ports, enter them (comma-separated); if not, just press Enter. <br>
-After entering, it will display Port Availability, Firewall Check
+After entering, it will display information like SSL validation, System Info, Service Status, Faveo Application Info, Cron Jobs (takes 5–10 sec),CSF, Supervisor Jobs, Logged-in Users, Billing Connection Check, Root-Owned Files/Folders in the Faveo directory, Port Availability Check (It will prompt for additional ports, if needed enter custome ports) If you need add n number of custome ports separated by comma; if not, just press Enter. After entering, it will display Port Availability and Firewall Check.
 
 ## Example Full Script Execution Summary
 ```
@@ -331,16 +318,7 @@ Faveo APP_URL from .env: faveo.helpdesk.com
 Enter domain for SSL check (leave empty to use APP_URL): 
 ```
 
-If your root directory is the default (/var/www/faveo), just press Enter. <br>
-The script will automatically read the APP_URL from the .env file inside that directory.
-
-If the root directory is not the default, open the .env file, get the APP_URL, and enter it manually when prompted.
-
-
-Example:
-```
-faveo.helpdesk.com/faveo/public
-``` 
+If your root directory is the default (/var/www/faveo), just press Enter. The script will automatically read the APP_URL from the .env file inside the faveo root directory.
 
 Example Output
 
@@ -349,12 +327,11 @@ Enter your choice [0-12]: 2
 Welcome to Faveo
 Date: Thursday 19 June 2025 1:18:54 PM IST
 --------------------------------------------------
-Faveo APP_URL from .env: siva.localhost
+Faveo APP_URL from .env: faveo.helpdesk.com
 Enter domain for SSL check (leave empty to use APP_URL): 
-No domain entered. Using APP_URL domain: siva.localhost
-SSL Check for: siva.localhost
+No domain entered. Using APP_URL domain: faveo.helpdesk.com
+SSL Check for: faveo.helpdesk.com
 SSL is Valid
-
 --------------------------------------------------
 Script by Faveo Helpdesk | support@faveohelpdesk.com
 Execution complete.
@@ -379,7 +356,6 @@ Load Avg: 0.92 0.72 0.86
 vCPU Cores: 8
 Memory: 9.2Gi used / 15Gi
 Disk: 170G used / 320G (57%)
-
 --------------------------------------------------
 Script by Faveo Helpdesk | support@faveohelpdesk.com
 Execution complete.
@@ -387,7 +363,7 @@ Execution complete.
 
 - Enter **4** to check Service Status and Service Version
 
-Shows status of services like Apache, MySQL, Php-fpm, Redis, etc.
+Shows version and status of services like Apache, MySQL, PHP, Php-fpm, Redis, etc.
 
 Example Output
 
@@ -446,6 +422,8 @@ Execution complete.
 
 - Enter **5** to check Faveo Info
 
+Displays Faveo APP_URL, plan, and version
+
 Example Output
 ```
 Enter your choice [0-12]: 5
@@ -456,14 +434,12 @@ Faveo Application Info:
 URL: https://siva.localhost
 Plan: Faveo Enterprise Pro
 Version: v9.4.1
-
-
 --------------------------------------------------
 Script by Faveo Helpdesk | support@faveohelpdesk.com
 Execution complete.
 ```
 
-- Enter **6** to check Cron Jobs with last run time last few logs 
+- Enter **6** to check Cron Jobs with last few run time logs (takes 5–10 sec)
 
 Example Output
 
@@ -478,23 +454,22 @@ Cron jobs for user: www-data
 artisan commands found:
 * * * * * /usr/bin/php /var/www/faveo/artisan schedule:run 2>&1
 Estimating last run time from system logs:
-Jun 19 13:44:02 Siva-LWS CRON[179717]: (www-data) CMD (/usr/bin/php /var/www/faveo/artisan schedule:run 2>&1)
-Jun 19 13:45:01 Siva-LWS CRON[180511]: (www-data) CMD (/usr/bin/php /var/www/faveo/artisan schedule:run 2>&1)
-Jun 19 13:46:01 Siva-LWS CRON[181271]: (www-data) CMD (/usr/bin/php /var/www/faveo/artisan schedule:run 2>&1)
-Jun 19 13:47:01 Siva-LWS CRON[181997]: (www-data) CMD (/usr/bin/php /var/www/faveo/artisan schedule:run 2>&1)
-Jun 19 13:48:01 Siva-LWS CRON[182718]: (www-data) CMD (/usr/bin/php /var/www/faveo/artisan schedule:run 2>&1)
-Jun 19 13:49:01 Siva-LWS CRON[183467]: (www-data) CMD (/usr/bin/php /var/www/faveo/artisan schedule:run 2>&1)
+Jun 19 13:44:02 Faveo CRON[179717]: (www-data) CMD (/usr/bin/php /var/www/faveo/artisan schedule:run 2>&1)
+Jun 19 13:45:01 Faveo CRON[180511]: (www-data) CMD (/usr/bin/php /var/www/faveo/artisan schedule:run 2>&1)
+Jun 19 13:46:01 Faveo CRON[181271]: (www-data) CMD (/usr/bin/php /var/www/faveo/artisan schedule:run 2>&1)
+Jun 19 13:47:01 Faveo CRON[181997]: (www-data) CMD (/usr/bin/php /var/www/faveo/artisan schedule:run 2>&1)
+Jun 19 13:48:01 Faveo CRON[182718]: (www-data) CMD (/usr/bin/php /var/www/faveo/artisan schedule:run 2>&1)
+Jun 19 13:49:01 Faveo CRON[183467]: (www-data) CMD (/usr/bin/php /var/www/faveo/artisan schedule:run 2>&1)
 
 Cron jobs for user: root
 None
-
 
 --------------------------------------------------
 Script by Faveo Helpdesk | support@faveohelpdesk.com
 Execution complete.
 ```
 
-- Enter **7** to check Supervisor Jobs Status
+- Enter **7** to check Supervisor jobs running status
 
 ```
 Enter your choice [0-12]: 7
@@ -505,11 +480,11 @@ Date: Thursday 19 June 2025 1:20:04 PM IST
 Supervisor Jobs:
 faveo-Horizon                    RUNNING   pid 4060, uptime 4:28:25
 
-
 --------------------------------------------------
 Script by Faveo Helpdesk | support@faveohelpdesk.com
 Execution complete.
 ```
+
 - Enter **8** to check SSH Logged-in Users
 
 Example Output
@@ -525,6 +500,7 @@ Logged-in Users:
 Script by Faveo Helpdesk | support@faveohelpdesk.com
 Execution complete.
 ```
+
 - Enter **9** to check Faveo Billing Connection
 
 Example Output
@@ -607,19 +583,6 @@ The following items are owned by root:
 /var/www/faveo/storage/framework/views/1577e048ef1518d750e5ce1a8465ab0a.php
 /var/www/faveo/storage/framework/views/cbc69d7628b7d63f2c7f45f383a8a2ec.php
 /var/www/faveo/storage/framework/views/9ee12cbe9019ffa581bbee531368b6cb.php
-/var/www/faveo/storage/framework/views/.gitignore
-/var/www/faveo/storage/framework/views/df8fc21b7556ba4139a6c9961755b5bc.php
-/var/www/faveo/storage/framework/views/9956b4dc4c656820dd621010d048cc3a.php
-/var/www/faveo/storage/framework/views/9a3feee78b54884f1a2033e092d91649.php
-/var/www/faveo/storage/framework/views/9919567c4593dc88d840a143ccb9b530.php
-/var/www/faveo/storage/framework/views/aafff260a02f25bab77f86edf58c2686.php
-/var/www/faveo/storage/framework/sessions
-/var/www/faveo/storage/framework/sessions/41i6QoUJ6JQf7d9cR47nPavmoJQgauLg7NWDH9kJ
-/var/www/faveo/storage/framework/sessions/YwglSp7U4DjGmAZGs4uHC20GkRpAR1pO5JlkA9qb
-/var/www/faveo/storage/framework/sessions/j3IRM4m9QYxEw0tOWDpVOY1yuzx2cka1GXtEpXJ5
-/var/www/faveo/storage/framework/sessions/s0TzZPzeQY2bhTHD6uGYZMWHi0xf1X9EAB4YOSwa
-/var/www/faveo/storage/framework/sessions/v4xmbhTsfQC2ZRWt6dZKuo9eZNfCNLzSJeVLOvvN
-
 --------------------------------------------------
 Script by Faveo Helpdesk | support@faveohelpdesk.com
 Execution complete.
@@ -634,7 +597,7 @@ To Fix This, Follow the Steps
 Run the following command to correct file ownership:
 
 ```
-chown -R www-data:www-data /var/www/faveo/bootstrap /var/www/faveo/storage
+chown -R www-data:www-data /var/www/faveo/ Enter the file/folder which are not owned by www-data 
 ```
 
 - Enter **11** to check Check if Required Ports are Open
@@ -669,8 +632,6 @@ Port 443 is open internally (listening).
 
 Checking Port 3306 (MySQL)
 Port 3306 is open internally (listening).
-
-
 --------------------------------------------------
 Script by Faveo Helpdesk | support@faveohelpdesk.com
 Execution complete.
@@ -681,7 +642,7 @@ Execution complete.
 Example Output
 ```
 Enter your choice [0-12]: 12
-Welcome to Siva-LWS
+Welcome to Faveo
 Date: Thursday 19 June 2025 02:36:24 PM IST
 --------------------------------------------------
 Firewall Check:
@@ -705,12 +666,7 @@ Status: active
 [13] 22/tcp (v6)                ALLOW IN    Anywhere (v6)             
 [14] 32156/tcp (v6)             ALLOW IN    Anywhere (v6)             
 
-
-
 --------------------------------------------------
 Script by Faveo Helpdesk | support@faveohelpdesk.com
 Execution complete.
 ```
-
-
-

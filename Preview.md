@@ -19,7 +19,7 @@ toc: true
 - RHEL-based servers
 
 ## Introduction
-```This script is designed to check and troubleshoot common issues in a Faveo Helpdesk. It includes the following diagnostic checks:```
+This script is designed to check and troubleshoot common issues in a Faveo Helpdesk. It includes the following diagnostic checks:
 SSL Check  
 → Verifies SSL certificate validity for the domain.
 
@@ -131,7 +131,7 @@ If the root directory is not the default, open the .env file, get the APP_URL, a
 
 Example:
 ```
-```faveo.helpdesk.com/faveo/public```
+faveo.helpdesk.com/faveo/public
 ``` 
 After entering, it will display information like SSL validation, System Info, Service Status, Faveo Application Info, Cron Jobs (takes 5–10 sec),CSF, Supervisor Jobs, Logged-in Users, Billing Connection Check, Root-Owned Files/Folders in the Faveo directory, Port Availability Check, and prompt for any additional ports to check
 

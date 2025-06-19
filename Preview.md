@@ -123,7 +123,7 @@ Enter domain for SSL check (leave empty to use APP_URL):
 ```
 The script will automatically read the APP_URL from the .env file inside faveo root directory.
 
-After entering, it will display information like SSL validation, System Info, Service Status, Faveo Application Info, Cron Jobs (takes 5–10 sec),CSF, Supervisor Jobs, Logged-in Users, Billing Connection Check, Root-Owned Files/Folders in the Faveo directory, Port Availability Check (It will prompt for additional ports, if needed enter custome ports) If you need add n number of custome ports separated by comma; if not, just press Enter. After entering, it will display Port Availability and Firewall Check.
+After entering, it will display information like SSL validation, System Info, Service Status, Faveo Application Info, Cron Jobs (takes 5–10 sec), Csf, Supervisor Jobs, Logged-in Users, Billing Connection Check, Root-Owned Files/Folders in the Faveo directory, Port Availability Check (It will prompt for additional ports, if needed enter custome ports) If you need add n number of custome ports separated by comma; if not, just press Enter. After entering, it will display Port Availability and Firewall Check.
 
 ## Example Full Script Execution Summary
 ```

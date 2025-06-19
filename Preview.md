@@ -11,7 +11,7 @@ toc: true
 
 # Faveo Basic Troubleshooting via Scripts <!-- omit in toc -->
 
-<img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/GUI-images/troubleshoot.png" alt="" style=" width:400px ; height:auto">
+<img alt="Troubleshoot" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2rxwH6YebmlMEZtIJSwDUehm2GRIMcwJalQ&s" width="200"  />
 
 
 ## Troubleshooting Faveo Helpdesk via Bash Script for:
@@ -26,8 +26,8 @@ SSL Check
 System Info  
 → Displays OS, uptime, memory usage, CPU, and disk statistics.
 
-Service Status  
-→ Shows status of services like Apache, MySQL, Php-fpm, Redis, etc.
+Service Version and Status  
+→ Shows version and status of services like Apache, MySQL, PHP, Php-fpm, Redis, etc.
 
 Faveo Info  
 → Displays Faveo APP_URL, plan, and version.

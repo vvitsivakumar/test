@@ -55,9 +55,11 @@ Firewall Check
 → Checks status of firewall (e.g., UFW) and its rules.
 
 
-Prerequisites:
+## Prerequisites:
 - "wget" tool installed.
 - sudo or root user privilege
+
+## Do this to run the script
 
 * [Click here](/installation-scripts/FaveoInstallationScripts/basic-troubleshoot.sh) to download the "basic-troubleshoot.sh" or use wget to download using the below command. 
 
@@ -65,35 +67,39 @@ Prerequisites:
 wget http://raw.githubusercontent.com/faveosuite/faveo-server-images/refs/heads/master/installation-scripts/FaveoInstallationScripts/basic-troubleshoot.sh
 ```
 
-Once the file is downlaoded to the faveo server provide executable permission to the script.
+- Once the file is downlaoded to the faveo server provide executable permission to the script by running the below command inside the directory where the script is present.
 ```
 chmod +x basic-troubleshoot.sh
 ```
-Excecute the script.
+- To execute the script run the below command from the directory where the script is present.
 ```
-./basic-troubleshoot.sh
+sudo ./basic-troubleshoot.sh
 ```
 
-When prompted input the following details.
+- Once the script is executed it will prompt for the faveo root directory which is a needed value for the script to work.
+- It will prompt for the below
+```
+Enter Faveo root directory path (e.g., /var/www/faveo) /var/www/faveo is the default press enter to use the default value:
+```
 
-If your Faveo root directory is the default:
+- When prompted above input the following details.
+
+- If your Faveo root directory is the default as below Just press Enter:
 
 ```
 /var/www/faveo
 ```
-
-Just press Enter.
-
-Otherwise, enter the correct path manually.
+- Otherwise, enter the correct path manually.
 
 Example:
 ```
 /var/www/html/faveo
 ```
 
-Next, Select an Option from the Menu 
+- Next, Select an Option from the Menu 
 
-You will be prompted to select one of the following:
+- You will be prompted to select one of the following:
+
 ```
 Select an option to run:
 1) Run all checks
@@ -112,8 +118,11 @@ Select an option to run:
 Enter your choice [0-12]: 
 ```
 
-- To check all information at once, select option **1**. You will see the full diagnostic output in sequence.
-- If you want to run a single specific check instead of all, select the relevant option number from the menu when prompted.  [Click here for more detail](#single-specific-check)
+- To check all information at once, select option **1**. You will see full diagnostic output in sequence.
+- If you want to run a single specific check instead of all, select the relevant option by passing optinon number from the menu when prompted.  [Click here for more detail](#single-specific-check)
+- After selecting option 
+- Below is the output of option ((1) Run all checks)
+
 ```
 Welcome to User_Name
 Date: Thursday 19 June 2025 10:57:40 AM IST
